@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 1 Month ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #020617, #1e3a8a, #3b82f6);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 30px;
+      border-radius: 25px;
+      backdrop-filter: blur(15px);
+      max-width: 420px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    h1 { font-size: 2rem; margin-bottom: 10px; }
+    p { font-size: 1rem; line-height: 1.6; }
+
+    .heart { font-size: 2rem; animation: beat 1s infinite; }
+    @keyframes beat { 0%,100%{transform:scale(1);} 50%{transform:scale(1.2);} }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      background: #3b82f6;
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover { background: #2563eb; }
+
+    .bat { position: absolute; width: 40px; opacity: 0.8; animation: float 6s infinite ease-in-out; }
+    .bat1 { top: -10px; left: -10px; }
+    .bat2 { bottom: -10px; right: -10px; animation-delay: 2s; }
+    .bat3 { top: 50%; left: -20px; animation-delay: 4s; }
+    @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-15px);} }
+
+    .timer { margin-top: 10px; font-size: 0.9rem; opacity: 0.8; }
+
+    .hiddenMsg { display: none; margin-top: 15px; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <div class="bat bat1">🦇</div>
+    <div class="bat bat2">🦇</div>
+    <div class="bat bat3">🦇</div>
+
+    <div class="heart">💙</div>
+    <h1>Happy 1 Month Darling 💫</h1>
+    <p>
+      It’s only been a month, but you’ve already become my favorite person 🥺💙
+      Every moment with you means so much to me.
+      I miss you even in the smallest parts of my day.
+      Thank you for being mine, darling 💙
+    </p>
+
+    <div class="timer" id="timer"></div>
+
+    <button onclick="showFirst()">Click me 💌</button>
+
+    <div class="hiddenMsg" id="msg1">
+      Even though we’re miles apart, my love for you only grows stronger every day 🥺💙
+      Distance doesn’t change how much you mean to me… if anything, it makes me realize it even more.
+      I carry you in every thought, every smile, every little moment.
+      I love you more than words can ever explain 💙✨
+      <br><br>
+      <button onclick="showSecond()">Click me again 💙</button>
+    </div>
+
+    <div class="hiddenMsg" id="msg2">
+      I love you forever, darling 💙🥺
+    </div>
+
+  </div>
+
+  <script>
+    function showFirst() {
+      document.getElementById("msg1").style.display = "block";
+    }
+
+    function showSecond() {
+      document.getElementById("msg2").style.display = "block";
+    }
+
+    const startDate = new Date("2026-03-23");
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      document.getElementById("timer").innerText =
+        `Together for ${days} days, ${hours} hours, ${minutes} mins 💙`;
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+</body>
+</html>
